@@ -17,6 +17,9 @@ extensions = [
 And in the code section, specify it's a ScalaFiddle code snippet by putting "scalaFiddle" after the backticks.
 "scalaFiddle" takes optional attributes "name", "description", and "libraries" in this form (see src/site/test.md for detail):
 ```
-<3 backticks>scalaFiddle name="simple" description="a simple loop" libraries="Java8 Time-0.1.0"
+<3 backticks>scalaFiddle name="simple" description="a simple test" libraries="Java8 Time-0.1.0"
+import java.time._
+println(LocalTime.now)
+<3 backticks>
 ```
-Execute "orndate" in sbt console to generate the html files.  They are in target/site by default.
+Execute "ornate" in sbt console to generate the html files.  They are in target/site by default.
