@@ -9,5 +9,10 @@ extensions = [
 2. world
 
 ```scalaFiddle
-println("helllo")
+println("hello")
+```
+another one
+```scalaFiddle name="simple" description="simple test"
+(0 to 10).foreach(println)
+
 ```
