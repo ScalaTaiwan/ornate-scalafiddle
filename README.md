@@ -15,7 +15,7 @@ extensions = [
 ---
 ```
 And in the code section, specify it's a ScalaFiddle code snippet by putting "scalaFiddle" after the backticks.
-"scalaFiddle" takes optional attributes "name" and "description" in this form:
+"scalaFiddle" takes optional attributes "name" and "description" in this form (see src/site/test.md for detail):
 ```
 <3 backticks>scalaFiddle name="simple" description="a simple loop"
 ```
