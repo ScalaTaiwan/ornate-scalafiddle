@@ -8,6 +8,7 @@ extensions = [
 # Welcome to ScalaKitchen!
 
 ```scalaFiddle libraries="Java8 Time-0.1.0"
+// 可以在這邊改程式喔，改好之後按下「左上角」的 Run
 import java.time._
 
 val hour = LocalTime.now().getHour()
@@ -19,6 +20,8 @@ val msg = if (hour <= 11) {
 } else {
   "晚上好!"
 }
+
+println(msg + " 歡迎來到 Scala 料理教室!")
 ```
 Scala 料理教室希望藉由簡單的程式範例，讓大家快速上手 Scala，目標是讓從來沒寫過程式的朋友，也可以選擇 Scala 作為他的第一個程式語言。
 本教室由 ScalaTaiwan 社群維護，如在學習上發現任何問題或建議，都歡迎到我們的 [Gitter聊天室](https://gitter.im/ScalaTaiwan/ScalaTaiwan) 聊聊。
