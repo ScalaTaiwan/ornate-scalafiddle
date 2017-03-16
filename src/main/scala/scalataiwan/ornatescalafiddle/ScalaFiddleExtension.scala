@@ -10,6 +10,7 @@ import org.commonmark.renderer.html.{HtmlNodeRendererContext, HtmlRenderer}
 import org.json4s.JsonDSL._
 import org.json4s._
 import org.json4s.native.JsonMethods._
+import Libraries._
 
 import scala.language.postfixOps
 import scala.util.Try
@@ -45,9 +46,11 @@ class ScalaFiddleExtension extends Extension {
         builder.nodeRendererFactory(SimpleHtmlNodeRenderer { (n: ScalaFiddleBlock, c: HtmlNodeRendererContext) =>
           val w = c.getWriter
           val as = parseAttributes(n.fcb.getInfo.drop(spec.length).trim)
+
           val url = getEmbedScalaFiddleUrl(
             as.get("name").getOrElse(""),
             as.get("description").getOrElse(""),
+            as.get("libraries").map(_.split(',').toList).getOrElse(List()),
             n.fcb.getLiteral)
           w.raw(s"""<iframe height="300" frameborder="0" style="width: 100%; overflow: hidden;" src="$url"></iframe>""")
         })
@@ -80,7 +83,7 @@ class ScalaFiddleExtension extends Extension {
     import AttributeParser._
     Map(parse(attributes, info).get: _*)
   }
-  def getEmbedScalaFiddleUrl(name: String, description: String, code: String): String = {
+  def getEmbedScalaFiddleUrl(name: String, description: String, libraries: List[String], code: String): String = {
     val c =
       s"""
         |import fiddle.Fiddle, Fiddle.println
@@ -89,7 +92,7 @@ class ScalaFiddleExtension extends Extension {
         |@js.annotation.JSExport
         |object ScalaFiddle {
         |  // $$FiddleStart
-        |  $code
+        |$code
         |  // $$FiddleEnd
         |}
       """.stripMargin
@@ -98,7 +101,7 @@ class ScalaFiddleExtension extends Extension {
         ("name" -> name) ~
         ("description" -> description) ~
         ("sourceCode" -> c) ~
-        ("libraries" -> List[String]()) ~
+        ("libraries" -> libraries.map(getLibrary(_))) ~
         ("forced" -> List[String]()) ~
         ("available" -> List[String]()) ~
         ("author" -> List[String]()))

@@ -7,7 +7,7 @@ extensions = [
 ---
 # Welcome to ScalaKitchen!
 
-```scalaFiddle
+```scalaFiddle libraries="Java8 Time-0.1.0"
 import java.time._
 
 val hour = LocalTime.now().getHour()
