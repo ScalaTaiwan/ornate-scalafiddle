@@ -1,4 +1,4 @@
-package ornatesandbox
+package scalataiwan.ornatescalafiddle
 
 import com.novocode.ornate.Extension
 import com.novocode.ornate.commonmark.NodeExtensionMethods.nodeToNodeExtensionMethods
@@ -11,6 +11,7 @@ import org.json4s.JsonDSL._
 import org.json4s._
 import org.json4s.native.JsonMethods._
 
+import scala.language.postfixOps
 import scala.util.Try
 import scala.util.control.NonFatal
 import scalaj.http.Http
