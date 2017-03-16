@@ -17,6 +17,6 @@ extensions = [
 And in the code section, specify it's a ScalaFiddle code snippet by putting "scalaFiddle" after the backticks.
 "scalaFiddle" takes optional attributes "name" and "description" in this form:
 ```
-''''''scalaFiddle name="simple" description="a simple loop"
+<3 backticks>scalaFiddle name="simple" description="a simple loop"
 ```
 Execute "orndate" in sbt console to generate the html files.  They are in target/site by default.
