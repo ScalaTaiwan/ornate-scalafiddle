@@ -41,7 +41,6 @@ class ScalaFiddleExtension extends Extension {
   )
   override val htmlRendererExtensions: Seq[HtmlRenderer.HtmlRendererExtension] = Seq(
     new HtmlRenderer.HtmlRendererExtension {
-      println("extension created")
       override def extend(builder: HtmlRenderer.Builder): Unit = {
         builder.nodeRendererFactory(SimpleHtmlNodeRenderer { (n: ScalaFiddleBlock, c: HtmlNodeRendererContext) =>
           val w = c.getWriter
@@ -103,7 +102,6 @@ class ScalaFiddleExtension extends Extension {
         ("forced" -> List[String]()) ~
         ("available" -> List[String]()) ~
         ("author" -> List[String]()))
-    println(compact(render(json)))
     Try {
       val result = Http("https://scalafiddle.io/api/scalafiddle/shared/Api/save")
         .timeout(10000, 30000)
