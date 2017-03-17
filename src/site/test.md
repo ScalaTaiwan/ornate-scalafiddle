@@ -4,6 +4,13 @@ extensions = [
   includeCode
   highlightjs
 ]
+extension.scalaFiddle {
+  name = "default name"
+  description = "default description"
+  libraries = [
+    Cats-0.7.2
+  ]
+}
 ---
 1. hello
 2. world
